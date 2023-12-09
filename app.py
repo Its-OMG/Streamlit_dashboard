@@ -8,7 +8,6 @@ import pandas as pd
 import time
 
 try:
-    @st.cache_resource
     def connect_to_database():
         db_config = {
         'host' : st.secrets['db_con']['host_name'],
@@ -21,7 +20,6 @@ except Exception as e:
     print(e)
 
 try:
-    @st.cache_data
     def fetch_data_for_plot():
         db_connection = connect_to_database()
         cursor = db_connection.cursor()
@@ -42,7 +40,6 @@ except Exception as e:
 
 
 try:
-    @st.cache_data
     def fetch_data_for_creds():
         db_connection = connect_to_database()
         cursor = db_connection.cursor()
